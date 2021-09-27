@@ -1,0 +1,3 @@
+/Users/gevorgtsaturyan/CLionProjects/laba_oop/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/gevorgtsaturyan/CLionProjects/laba_oop/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/gevorgtsaturyan/CLionProjects/laba_oop/cmake-build-debug/CMakeFiles/laba_oop.dir

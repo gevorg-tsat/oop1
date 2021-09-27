@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/gevorgtsaturyan/CLionProjects/laba_oop/Car.h
+string
+-
+
+/Users/gevorgtsaturyan/CLionProjects/laba_oop/main.cpp
+iostream
+-
+string
+-
+Car.h
+/Users/gevorgtsaturyan/CLionProjects/laba_oop/Car.h
+
