@@ -29,7 +29,6 @@ int main() {
     assert(tachkaCopy.getAngle() == tachka.getAngle());
     tachka.setName("Mercedes");
     assert(tachka.getName() == "Mercedes");
-
     std::cout<<"Finished without errors"<<std::endl;
     return 0;
 }
