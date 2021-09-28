@@ -53,7 +53,7 @@ void Car::setAngle(int angle) {
         throw std::exception();
     this->angle = angle;
 }
-void Car::setName(std::string carName) {
+void Car::setName(const std::string& carName) {
     this->carName = carName;
 }
 void Car::setWidth(int width) {
