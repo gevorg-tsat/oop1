@@ -1,7 +1,8 @@
 //
 // Created by Gevorg Tsaturyan on 25.09.2021.
 //
-
+#define ZERO 0
+#define EMPTY ""
 #include "Car.h"
 Car::Car(std::string carName,int height, int width, int length,int x, int y, int angle) {
     if (!checkHWLXY(height))
@@ -25,13 +26,13 @@ Car::Car(std::string carName,int height, int width, int length,int x, int y, int
     this->angle = angle;
 }
 Car::Car() { //default
-    this->carName = "";
-    this->height = 0;
-    this->width = 0;
-    this->length=0;
-    this->x = 0;
-    this->y = 0;
-    this->angle = 0;
+    this->carName = EMPTY;
+    this->height = ZERO;
+    this->width = ZERO;
+    this->length = ZERO;
+    this->x = ZERO;
+    this->y = ZERO;
+    this->angle = ZERO;
 }
 Car::Car(const Car& car) {
     this->carName = car.carName;

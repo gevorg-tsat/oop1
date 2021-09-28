@@ -2,6 +2,8 @@
 #include <string>
 #include "Car.h"
 #include <cassert>
+#define ZERO 0
+#define EMPTY ""
 int main() {
     Car tachka = Car("BMW",10,10,10,0,0,45);
     Car tachkaDefault = Car();
@@ -13,13 +15,13 @@ int main() {
     assert(tachka.getX() == 0);
     assert(tachka.getY() == 0);
     assert(tachka.getAngle() == 45);
-    assert(tachkaDefault.getName() == "");
-    assert(tachkaDefault.getHeight() == 0);
-    assert(tachkaDefault.getWidth() == 0);
-    assert(tachkaDefault.getLength() == 0);
-    assert(tachkaDefault.getX() == 0);
-    assert(tachkaDefault.getY() == 0);
-    assert(tachkaDefault.getAngle() == 0);
+    assert(tachkaDefault.getName() == EMPTY);
+    assert(tachkaDefault.getHeight() == ZERO);
+    assert(tachkaDefault.getWidth() == ZERO);
+    assert(tachkaDefault.getLength() == ZERO);
+    assert(tachkaDefault.getX() == ZERO);
+    assert(tachkaDefault.getY() == ZERO);
+    assert(tachkaDefault.getAngle() == ZERO);
     assert(tachkaCopy.getName() == tachka.getName());
     assert(tachkaCopy.getHeight() == tachka.getHeight());
     assert(tachkaCopy.getWidth() == tachka.getWidth());
@@ -28,6 +30,8 @@ int main() {
     assert(tachkaCopy.getY() == tachka.getY());
     assert(tachkaCopy.getAngle() == tachka.getAngle());
     tachka.setName("Mercedes");
+    tachka.setLength(20);
+    assert(tachka.getLength() == 20);
     assert(tachka.getName() == "Mercedes");
     std::cout<<"Finished without errors"<<std::endl;
     return 0;
