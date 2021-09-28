@@ -5,11 +5,13 @@
 #ifndef LABA_OOP_CAR_H
 #define LABA_OOP_CAR_H
 #include <string>
-
+#define ZERO 0
+#define EMPTY ""
 class Car {
 public:
     Car();
-    Car(std::string carName,int height, int width, int length,int x, int y, int angle);
+    ~Car();
+    Car(const std::string& carName,int height, int width, int length,int x, int y, int angle);
     Car(const Car& car);
     void setName(const std::string& carName);
     void setHeight(int height);

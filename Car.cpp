@@ -1,10 +1,8 @@
 //
 // Created by Gevorg Tsaturyan on 25.09.2021.
 //
-#define ZERO 0
-#define EMPTY ""
 #include "Car.h"
-Car::Car(std::string carName,int height, int width, int length,int x, int y, int angle) {
+Car::Car(const std::string& carName,int height, int width, int length,int x, int y, int angle) {
     if (!checkHWLXY(height))
         throw std::exception();
     if (!checkAngle(angle))
@@ -42,6 +40,9 @@ Car::Car(const Car& car) {
     this->x = car.x;
     this->y = car.y;
     this->angle = car.angle;
+}
+Car::~Car(){
+
 }
 void Car::setHeight(int height) {
     if (!checkHWLXY(height))
