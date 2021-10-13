@@ -14,14 +14,12 @@ public:
     Car(const std::string& carName,int height, int width, int length,int x, int y, int angle);
     Car(const Car& car);
     void setName(const std::string& carName);
-    void setHeight(int height);
     void setWidth(int width);
     void setX(int x);
     void setY(int Y);
     void setAngle(int angle);
     void setLength(int length);
     const std::string& getName() const;
-    int getHeight() const;
     int getWidth() const;
     int getX() const;
     int getY() const;
@@ -29,7 +27,6 @@ public:
     int getLength() const;
 private:
     std::string carName;
-    int height;
     int width;
     int length;
     int x;

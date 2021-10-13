@@ -12,6 +12,11 @@ public:
     Plan(int size);
     Plan(const Plan &plan);
     ~Plan();
+    void addCar(Car car, int podiumNumber);
+    void addPodium(Podium podium);
+    void addPodium(Podium podium, Car car);
+    void changeCars(int number1, int number2);
+
 private:
     int capacity;
     int current;

@@ -25,7 +25,6 @@ Car::Car(const std::string& carName,int height, int width, int length,int x, int
 }
 Car::Car() { //default
     this->carName = EMPTY;
-    this->height = ZERO;
     this->width = ZERO;
     this->length = ZERO;
     this->x = ZERO;
@@ -34,7 +33,6 @@ Car::Car() { //default
 }
 Car::Car(const Car& car) {
     this->carName = car.carName;
-    this->height = car.height;
     this->width = car.width;
     this->length = car.length;
     this->x = car.x;
@@ -43,11 +41,6 @@ Car::Car(const Car& car) {
 }
 Car::~Car(){
 
-}
-void Car::setHeight(int height) {
-    if (!checkHWLXY(height))
-        throw std::exception();
-    this->height = height;
 }
 void Car::setAngle(int angle) {
     if (!checkAngle(angle))
@@ -79,9 +72,6 @@ void Car::setLength(int length) {
 }
 const std::string& Car::getName() const {
     return this->carName;
-}
-int Car::getHeight() const {
-    return this->height;
 }
 int Car::getWidth() const{
     return this->width;
