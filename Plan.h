@@ -16,7 +16,8 @@ public:
     void addPodium(Podium podium);
     void addPodium(Podium podium, Car car);
     void changeCars(int number1, int number2);
-
+    void removeCar(int carNumber);
+    void removePodium(int number);
 private:
     int capacity;
     int current;
