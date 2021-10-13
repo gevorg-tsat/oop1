@@ -1,5 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/laba_oop.dir/Car.cpp.o"
+  "CMakeFiles/laba_oop.dir/Plan.cpp.o"
+  "CMakeFiles/laba_oop.dir/Podium.cpp.o"
   "CMakeFiles/laba_oop.dir/main.cpp.o"
   "laba_oop"
   "laba_oop.pdb"

@@ -170,6 +170,60 @@ Car.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/laba_oop.dir/build.make CMakeFiles/laba_oop.dir/Car.cpp.s
 .PHONY : Car.cpp.s
 
+Plan.o: Plan.cpp.o
+
+.PHONY : Plan.o
+
+# target to build an object file
+Plan.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/laba_oop.dir/build.make CMakeFiles/laba_oop.dir/Plan.cpp.o
+.PHONY : Plan.cpp.o
+
+Plan.i: Plan.cpp.i
+
+.PHONY : Plan.i
+
+# target to preprocess a source file
+Plan.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/laba_oop.dir/build.make CMakeFiles/laba_oop.dir/Plan.cpp.i
+.PHONY : Plan.cpp.i
+
+Plan.s: Plan.cpp.s
+
+.PHONY : Plan.s
+
+# target to generate assembly for a file
+Plan.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/laba_oop.dir/build.make CMakeFiles/laba_oop.dir/Plan.cpp.s
+.PHONY : Plan.cpp.s
+
+Podium.o: Podium.cpp.o
+
+.PHONY : Podium.o
+
+# target to build an object file
+Podium.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/laba_oop.dir/build.make CMakeFiles/laba_oop.dir/Podium.cpp.o
+.PHONY : Podium.cpp.o
+
+Podium.i: Podium.cpp.i
+
+.PHONY : Podium.i
+
+# target to preprocess a source file
+Podium.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/laba_oop.dir/build.make CMakeFiles/laba_oop.dir/Podium.cpp.i
+.PHONY : Podium.cpp.i
+
+Podium.s: Podium.cpp.s
+
+.PHONY : Podium.s
+
+# target to generate assembly for a file
+Podium.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/laba_oop.dir/build.make CMakeFiles/laba_oop.dir/Podium.cpp.s
+.PHONY : Podium.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -209,6 +263,12 @@ help:
 	@echo "... Car.o"
 	@echo "... Car.i"
 	@echo "... Car.s"
+	@echo "... Plan.o"
+	@echo "... Plan.i"
+	@echo "... Plan.s"
+	@echo "... Podium.o"
+	@echo "... Podium.i"
+	@echo "... Podium.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
