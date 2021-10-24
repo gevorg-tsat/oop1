@@ -6,25 +6,27 @@
 #define LABA_OOP_PLAN_H
 #include "Car.h"
 #include "Podium.h"
+#include <vector>
+#include <fstream>
+
 class Plan {
 public:
-    Plan();
-    Plan(int size);
-    Plan(const Plan &plan);
-    ~Plan();
-    void addCar(Car car, int podiumNumber);
-    void addPodium(Podium podium);
-    void addPodium(Podium podium, Car car);
-    void changeCars(int number1, int number2);
-    void removeCar(int carNumber);
-    void removePodium(int number);
+    Plan() = default;
+    Plan(const Plan& otherPlan);
+    Plan(Car *cars, int capacity);
+    ~Plan() = default;
+    void addCar(Car car);
+    void removeCar(int i);
+    void removeCar();
+    Car getCar(int i);
+    int getCapacity();
+    bool checkCarPodium();
+    void toFile(const std::string& filename);
+    void fromFile(const std::string& filename);
+
 private:
     int capacity;
-    int current;
-    Car** cars;
-    Podium** podiums;
-
-
+    Car* cars;
 };
 
 

@@ -16,7 +16,6 @@ Car::Car(const std::string& carName,int height, int width, int length,int x, int
     if (!checkHWLXY(y))
         throw std::exception();
     this->carName = carName;
-    this->height = height;
     this->width = width;
     this->length = length;
     this->x = x;
