@@ -101,6 +101,12 @@
 		<Unit filename="/Users/gevorgtsaturyan/CLionProjects/laba_oop/main.cpp">
 			<Option target="laba_oop"/>
 		</Unit>
+		<Unit filename="/Users/gevorgtsaturyan/CLionProjects/laba_oop/testing.cpp">
+			<Option target="laba_oop"/>
+		</Unit>
+		<Unit filename="/Users/gevorgtsaturyan/CLionProjects/laba_oop/testing.h">
+			<Option target="laba_oop"/>
+		</Unit>
 		<Unit filename="/Users/gevorgtsaturyan/CLionProjects/laba_oop/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

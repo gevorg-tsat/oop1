@@ -251,6 +251,33 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/laba_oop.dir/build.make CMakeFiles/laba_oop.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+testing.o: testing.cpp.o
+
+.PHONY : testing.o
+
+# target to build an object file
+testing.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/laba_oop.dir/build.make CMakeFiles/laba_oop.dir/testing.cpp.o
+.PHONY : testing.cpp.o
+
+testing.i: testing.cpp.i
+
+.PHONY : testing.i
+
+# target to preprocess a source file
+testing.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/laba_oop.dir/build.make CMakeFiles/laba_oop.dir/testing.cpp.i
+.PHONY : testing.cpp.i
+
+testing.s: testing.cpp.s
+
+.PHONY : testing.s
+
+# target to generate assembly for a file
+testing.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/laba_oop.dir/build.make CMakeFiles/laba_oop.dir/testing.cpp.s
+.PHONY : testing.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -272,6 +299,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... testing.o"
+	@echo "... testing.i"
+	@echo "... testing.s"
 .PHONY : help
 
 

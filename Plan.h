@@ -12,7 +12,7 @@
 class Plan {
 public:
     Plan() = default;
-    Plan(const Plan& otherPlan);
+    Plan(const Plan& otherPlan) = default;
     Plan(Car *cars, int capacity);
     ~Plan() = default;
     void addCar(Car car);
@@ -25,7 +25,7 @@ public:
     void fromFile(const std::string& filename);
 
 private:
-    int capacity;
+    int capacity=0;
     Car* cars;
 };
 

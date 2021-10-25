@@ -11,7 +11,7 @@ class Car {
 public:
     Car();
     ~Car();
-    Car(const std::string& carName,int height, int width, int length,int x, int y, int angle);
+    Car(const std::string& carName,int length, int width, int x, int y, int angle);
     Car(const Car& car);
     void setName(const std::string& carName);
     void setWidth(int width);

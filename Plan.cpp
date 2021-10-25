@@ -4,9 +4,6 @@
 
 #include "Plan.h"
 
-Plan::Plan() {
-    this->capacity = 0;
-}
 Plan::Plan(Car *cars, int capacity) :
     cars(cars), capacity(capacity) {
 }
@@ -65,21 +62,22 @@ void Plan::toFile(const std::string &filename) {
     for (int i = 0; i < capacity; i++)
     {
         std::string  name = cars[i].getName();
-        int size_x = cars[i].getLength(), size_y = cars[i].getWidth(), coor_x = cars[i].getX(), coor_y = cars[i].getY();
+        int size_x = cars[i].getLength(), size_y = cars[i].getWidth(), coor_x = cars[i].getX(), coor_y = cars[i].getY(), angle = cars[i].getAngle();
         fin << name << " ";
         fin << size_x << " " << size_y << " ";
-        fin << coor_x << " " << coor_y << " " << std::endl;
+        fin << coor_x << " " << coor_y << " ";
+        fin << angle << std::endl;
     }
     fin.close();
 }
 void Plan::fromFile(const std::string &filename) {
     std::ifstream fout(filename);
     std::string name;
-    int length, width, x , y;
+    int length, width, x , y, angle;
     std::vector <Car> temp;
     Car *tmp;
 
-    while (fout >> name >> length >> width >> x >> y)
+    while (fout >> name >> length >> width >> x >> y >> angle)
     {
         tmp = new Car;
         (*tmp).setName(name);
@@ -87,6 +85,7 @@ void Plan::fromFile(const std::string &filename) {
         (*tmp).setWidth(width);
         (*tmp).setX(x);
         (*tmp).setY(y);
+        (*tmp).setAngle(angle);
         temp.push_back(*tmp);
         delete tmp;
         this->addCar(temp.back());

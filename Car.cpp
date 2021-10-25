@@ -2,9 +2,7 @@
 // Created by Gevorg Tsaturyan on 25.09.2021.
 //
 #include "Car.h"
-Car::Car(const std::string& carName,int height, int width, int length,int x, int y, int angle) {
-    if (!checkHWLXY(height))
-        throw std::exception();
+Car::Car(const std::string& carName, int length,int width,int x, int y, int angle) {
     if (!checkAngle(angle))
         throw std::exception();
     if (!checkHWLXY(width))
