@@ -98,6 +98,12 @@
 		<Unit filename="/Users/gevorgtsaturyan/CLionProjects/laba_oop/Podium.h">
 			<Option target="laba_oop"/>
 		</Unit>
+		<Unit filename="/Users/gevorgtsaturyan/CLionProjects/laba_oop/Showroom.cpp">
+			<Option target="laba_oop"/>
+		</Unit>
+		<Unit filename="/Users/gevorgtsaturyan/CLionProjects/laba_oop/Showroom.h">
+			<Option target="laba_oop"/>
+		</Unit>
 		<Unit filename="/Users/gevorgtsaturyan/CLionProjects/laba_oop/main.cpp">
 			<Option target="laba_oop"/>
 		</Unit>

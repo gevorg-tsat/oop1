@@ -3,7 +3,32 @@
 
 CMakeFiles/laba_oop.dir/Car.cpp.o: ../Car.cpp
 CMakeFiles/laba_oop.dir/Car.cpp.o: ../Car.h
+CMakeFiles/laba_oop.dir/Car.cpp.o: ../Showroom.h
+
+CMakeFiles/laba_oop.dir/Plan.cpp.o: ../Car.h
+CMakeFiles/laba_oop.dir/Plan.cpp.o: ../Plan.cpp
+CMakeFiles/laba_oop.dir/Plan.cpp.o: ../Plan.h
+CMakeFiles/laba_oop.dir/Plan.cpp.o: ../Podium.h
+CMakeFiles/laba_oop.dir/Plan.cpp.o: ../Showroom.h
+
+CMakeFiles/laba_oop.dir/Podium.cpp.o: ../Podium.cpp
+CMakeFiles/laba_oop.dir/Podium.cpp.o: ../Podium.h
+CMakeFiles/laba_oop.dir/Podium.cpp.o: ../Showroom.h
+
+CMakeFiles/laba_oop.dir/Showroom.cpp.o: ../Showroom.cpp
+CMakeFiles/laba_oop.dir/Showroom.cpp.o: ../Showroom.h
 
 CMakeFiles/laba_oop.dir/main.cpp.o: ../Car.h
+CMakeFiles/laba_oop.dir/main.cpp.o: ../Plan.h
+CMakeFiles/laba_oop.dir/main.cpp.o: ../Podium.h
+CMakeFiles/laba_oop.dir/main.cpp.o: ../Showroom.h
 CMakeFiles/laba_oop.dir/main.cpp.o: ../main.cpp
+CMakeFiles/laba_oop.dir/main.cpp.o: ../testing.h
+
+CMakeFiles/laba_oop.dir/testing.cpp.o: ../Car.h
+CMakeFiles/laba_oop.dir/testing.cpp.o: ../Plan.h
+CMakeFiles/laba_oop.dir/testing.cpp.o: ../Podium.h
+CMakeFiles/laba_oop.dir/testing.cpp.o: ../Showroom.h
+CMakeFiles/laba_oop.dir/testing.cpp.o: ../testing.cpp
+CMakeFiles/laba_oop.dir/testing.cpp.o: ../testing.h
 

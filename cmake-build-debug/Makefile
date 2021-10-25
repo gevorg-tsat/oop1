@@ -224,6 +224,33 @@ Podium.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/laba_oop.dir/build.make CMakeFiles/laba_oop.dir/Podium.cpp.s
 .PHONY : Podium.cpp.s
 
+Showroom.o: Showroom.cpp.o
+
+.PHONY : Showroom.o
+
+# target to build an object file
+Showroom.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/laba_oop.dir/build.make CMakeFiles/laba_oop.dir/Showroom.cpp.o
+.PHONY : Showroom.cpp.o
+
+Showroom.i: Showroom.cpp.i
+
+.PHONY : Showroom.i
+
+# target to preprocess a source file
+Showroom.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/laba_oop.dir/build.make CMakeFiles/laba_oop.dir/Showroom.cpp.i
+.PHONY : Showroom.cpp.i
+
+Showroom.s: Showroom.cpp.s
+
+.PHONY : Showroom.s
+
+# target to generate assembly for a file
+Showroom.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/laba_oop.dir/build.make CMakeFiles/laba_oop.dir/Showroom.cpp.s
+.PHONY : Showroom.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -296,6 +323,9 @@ help:
 	@echo "... Podium.o"
 	@echo "... Podium.i"
 	@echo "... Podium.s"
+	@echo "... Showroom.o"
+	@echo "... Showroom.i"
+	@echo "... Showroom.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

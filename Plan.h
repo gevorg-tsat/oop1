@@ -16,20 +16,26 @@ class Plan {
 public:
     Plan() = default;
     Plan(const Plan& otherPlan) = default;
-    Plan(Car *cars, int capacity);
+    Plan(CarPod* cp, int capacity);
+    Plan(Car *cars,Podium* podium, int amount, int capacity);
     ~Plan() = default;
     void addCar(Car car);
+    void addPod(Podium podium);
     void removeCar(int i);
     void removeCar();
     Car getCar(int i);
     int getCapacity();
-    bool checkCarPodium();
-    void toFile(const std::string& filename);
-    void fromFile(const std::string& filename);
-
+    int getAmountCars();
+    void CarsToFile(const std::string& filename);
+    void CarsFromFile(const std::string& filename);
+    void PodToFile(const std::string& filename);
+    void PodFromFile(const std::string& filename);
+    bool CarPodiumCheck(int i);
+    bool CarPodiumCheck();
 private:
     int capacity=0;
-    Car* cars;
+    int amountCars=0;
+    CarPod* cp;
 };
 
 

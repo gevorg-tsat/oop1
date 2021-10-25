@@ -7,8 +7,8 @@
 
 void PlanFileCopyTest() {
     Plan  plan1;
-
-    plan1.fromFile("/Users/gevorgtsaturyan/CLionProjects/laba_oop/input.txt");
+    plan1.PodFromFile("/Users/gevorgtsaturyan/CLionProjects/laba_oop/input1.txt");
+    plan1.CarsFromFile("/Users/gevorgtsaturyan/CLionProjects/laba_oop/input.txt");
 
     Plan plan2(plan1);
 
@@ -27,7 +27,7 @@ void PlanAddDelTest(){
     Plan  plan;
 
     Car car("BMW",1,2,3,4,5);
-
+    plan.addPod(Podium());
     plan.addCar(car);
     assert(plan.getCar(0).getName() == "BMW");
     assert(plan.getCar(0).getLength() == 1);
@@ -38,16 +38,17 @@ void PlanAddDelTest(){
 
     std :: cout << "No mistakes for adding to collection" << std :: endl;
 
-    int temp = plan.getCapacity();
+    int temp = plan.getAmountCars();
     plan.removeCar(0);
-    assert(plan.getCapacity() == temp - 1);
+    assert(plan.getAmountCars() == temp - 1);
 
     std :: cout << "No mistakes for deleting an element from collection" << std :: endl;
 
-    plan.fromFile("/Users/gevorgtsaturyan/CLionProjects/laba_oop/input.txt");
-    assert(plan.getCapacity() > 1);
+    plan.PodFromFile("/Users/gevorgtsaturyan/CLionProjects/laba_oop/input1.txt");
+    plan.CarsFromFile("/Users/gevorgtsaturyan/CLionProjects/laba_oop/input.txt");
+    assert(plan.getAmountCars() > 1);
     plan.removeCar();
-    assert(plan.getCapacity() == 0);
+    assert(plan.getAmountCars() == 0);
 
     std :: cout << "No mistakes for deleting all elements from collection" << std :: endl;
 }
@@ -62,9 +63,9 @@ void printPlan(Plan plan) {
 void PlanFileTest() {
     Plan plan;
     std::string t;
-
-    plan.fromFile("/Users/gevorgtsaturyan/CLionProjects/laba_oop/input.txt");
-    plan.toFile("/Users/gevorgtsaturyan/CLionProjects/laba_oop/output.txt");
+    plan.PodFromFile("/Users/gevorgtsaturyan/CLionProjects/laba_oop/input1.txt");
+    plan.CarsFromFile("/Users/gevorgtsaturyan/CLionProjects/laba_oop/input.txt");
+    plan.CarsToFile("/Users/gevorgtsaturyan/CLionProjects/laba_oop/output.txt");
     std::cout << "The result of reading from a file:" << std::endl;
     printPlan(plan);
     std::ifstream file("/Users/gevorgtsaturyan/CLionProjects/laba_oop/output.txt");
