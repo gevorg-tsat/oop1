@@ -8,7 +8,10 @@
 #include "Podium.h"
 #include <vector>
 #include <fstream>
-
+struct CarPod {
+    Podium pod;
+    Car car;
+};
 class Plan {
 public:
     Plan() = default;

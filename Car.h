@@ -5,35 +5,24 @@
 #ifndef LABA_OOP_CAR_H
 #define LABA_OOP_CAR_H
 #include <string>
-#define ZERO 0
-#define EMPTY ""
-class Car {
+#include "Showroom.h"
+class Car : public Showroom {
 public:
     Car();
     ~Car();
-    Car(const std::string& carName,int length, int width, int x, int y, int angle);
+    Car(const std::string& name,int length, int width, int x, int y, int angle);
     Car(const Car& car);
-    void setName(const std::string& carName);
     void setWidth(int width);
-    void setX(int x);
-    void setY(int Y);
     void setAngle(int angle);
     void setLength(int length);
-    const std::string& getName() const;
     int getWidth() const;
-    int getX() const;
-    int getY() const;
     int getAngle() const;
     int getLength() const;
 private:
-    std::string carName;
     int width;
     int length;
-    int x;
-    int y;
     int angle;
 protected:
-    bool checkHWLXY(int value);
     bool checkAngle(int angle);
 };
 
