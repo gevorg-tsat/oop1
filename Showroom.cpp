@@ -47,3 +47,6 @@ bool  Showroom::checkHWLXY(int value) {
         return false;
     return true;
 }
+int Showroom::getType() const{
+
+}

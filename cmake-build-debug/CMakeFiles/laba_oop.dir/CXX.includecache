@@ -12,10 +12,6 @@ string
 Showroom.h
 /Users/gevorgtsaturyan/CLionProjects/laba_oop/Showroom.h
 
-/Users/gevorgtsaturyan/CLionProjects/laba_oop/Plan.cpp
-Plan.h
-/Users/gevorgtsaturyan/CLionProjects/laba_oop/Plan.h
-
 /Users/gevorgtsaturyan/CLionProjects/laba_oop/Plan.h
 Car.h
 /Users/gevorgtsaturyan/CLionProjects/laba_oop/Car.h
@@ -45,12 +41,6 @@ cassert
 -
 testing.h
 /Users/gevorgtsaturyan/CLionProjects/laba_oop/testing.h
-
-/Users/gevorgtsaturyan/CLionProjects/laba_oop/testing.cpp
-testing.h
-/Users/gevorgtsaturyan/CLionProjects/laba_oop/testing.h
-iostream
--
 
 /Users/gevorgtsaturyan/CLionProjects/laba_oop/testing.h
 Plan.h

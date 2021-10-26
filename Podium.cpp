@@ -23,3 +23,6 @@ int Podium::getRadius() const{
 void Podium::setRadius(int r) {
     this->r = r;
 }
+int Podium::getType() const{
+    return 1;
+}

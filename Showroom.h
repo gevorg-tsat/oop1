@@ -18,7 +18,7 @@ public:
     const std::string& getName() const;
     int getX() const;
     int getY() const;
-
+    virtual int getType() const;
 private:
    std::string name;
    int x;

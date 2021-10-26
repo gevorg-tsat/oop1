@@ -18,6 +18,7 @@ public:
     int getWidth() const;
     int getAngle() const;
     int getLength() const;
+    int getType() const;
 private:
     int width;
     int length;

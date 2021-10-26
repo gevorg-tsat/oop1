@@ -14,6 +14,7 @@ public:
     Podium(const Podium& pod);
     void setRadius(int r);
     int getRadius() const;
+    int getType() const;
 private:
     int r;
 };

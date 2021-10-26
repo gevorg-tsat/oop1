@@ -55,4 +55,6 @@ bool Car::checkAngle(int angle) {
         return false;
     return true;
 }
-
+int Car::getType() const{
+    return 0;
+}
