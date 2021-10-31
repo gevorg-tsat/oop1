@@ -12,13 +12,13 @@ struct CarPod {
     Podium pod;
     Car car;
 };
-class Plan {
+class Plan2 {
 public:
-    Plan() = default;
-    Plan(const Plan& otherPlan) = default;
-    Plan(CarPod* cp, int capacity);
-    Plan(Car *cars,Podium* podium, int amount, int capacity);
-    ~Plan() = default;
+    Plan2() = default;
+    Plan2(const Plan2& otherPlan) = default;
+    Plan2(CarPod* cp, int capacity);
+    Plan2(Car *cars,Podium* podium, int amount, int capacity);
+    ~Plan2() = default;
     void addCar(Car car);
     void addPod(Podium podium);
     void removeCar(int i);

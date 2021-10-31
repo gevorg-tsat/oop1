@@ -4,17 +4,17 @@
 
 #include "Plan.h"
 
-Plan::Plan(CarPod* cp, int capacity) :
+Plan2::Plan2(CarPod* cp, int capacity) :
     cp(cp), capacity(capacity) {
 }
-Plan::Plan(Car *cars,Podium* podium, int amount, int tcapacity) {
+Plan2::Plan2(Car *cars,Podium* podium, int amount, int tcapacity) {
     for (int i=0;i<tcapacity;i++) {
         this->addPod(podium[i]);
     }
     for (int i = 0; i<amount;i++)
         this->addCar(cars[i]);
 }
-void Plan::addCar(Car car) {
+void Plan2::addCar(Car car) {
     if (!capacity)
         throw std::exception();
     else if (amountCars==capacity)
@@ -28,7 +28,7 @@ void Plan::addCar(Car car) {
         amountCars++;
     }
 }
-void Plan::addPod(Podium podium) {
+void Plan2::addPod(Podium podium) {
     if (!capacity) {
         capacity++;
         cp = new CarPod[capacity];
@@ -43,7 +43,7 @@ void Plan::addPod(Podium podium) {
         capacity++;
     }
 }
-void Plan::removeCar(int i) {
+void Plan2::removeCar(int i) {
     if (i>capacity)
         throw std::exception();
     else {
@@ -67,13 +67,13 @@ void Plan::removeCar(int i) {
         capacity--;
     } */
 }
-void Plan::removeCar() {
+void Plan2::removeCar() {
     for (int i=0;i<capacity;i++){
         cp[i].car = Car();
     }
     amountCars = 0;
 }
-Car Plan::getCar(int i) {
+Car Plan2::getCar(int i) {
     if (!amountCars)
         throw std::exception();
     else {
@@ -84,13 +84,13 @@ Car Plan::getCar(int i) {
     }
 
 }
-int Plan::getCapacity() {
+int Plan2::getCapacity() {
     return capacity;
 }
-int Plan::getAmountCars() {
+int Plan2::getAmountCars() {
     return amountCars;
 }
-void Plan::CarsToFile(const std::string &filename) {
+void Plan2::CarsToFile(const std::string &filename) {
     std::ofstream fin(filename);
 
     for (int i = 0; i < capacity; i++)
@@ -104,7 +104,7 @@ void Plan::CarsToFile(const std::string &filename) {
     }
     fin.close();
 }
-void Plan::CarsFromFile(const std::string &filename) {
+void Plan2::CarsFromFile(const std::string &filename) {
     std::ifstream fout(filename);
     std::string name;
     int length, width, x , y, angle;
@@ -126,7 +126,7 @@ void Plan::CarsFromFile(const std::string &filename) {
     temp.clear();
     fout.close();
 }
-void Plan::PodFromFile(const std::string& filename) {
+void Plan2::PodFromFile(const std::string& filename) {
     std::ifstream fout(filename);
     std::string name;
     int rad, x , y;
@@ -146,7 +146,7 @@ void Plan::PodFromFile(const std::string& filename) {
     temp.clear();
     fout.close();
 }
-void Plan::PodToFile(const std::string& filename) {
+void Plan2::PodToFile(const std::string& filename) {
     std::ofstream fin(filename);
 
     for (int i = 0; i < capacity; i++)
@@ -159,7 +159,7 @@ void Plan::PodToFile(const std::string& filename) {
     }
     fin.close();
 }
-bool Plan::CarPodiumCheck(int i) {
+bool Plan2::CarPodiumCheck(int i) {
    if (i>=capacity)
        throw std::exception();
    if ((cp[i].car.getName() == cp[i].pod.getName()) || (cp[i].car.getName()==""))
@@ -167,7 +167,7 @@ bool Plan::CarPodiumCheck(int i) {
    else
        return false;
 }
-bool Plan::CarPodiumCheck() {
+bool Plan2::CarPodiumCheck() {
     for (int i; i<capacity;i++)
         if (!CarPodiumCheck(i))
             return false;

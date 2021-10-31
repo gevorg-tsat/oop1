@@ -3,4 +3,4 @@ project(laba_oop)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(laba_oop main.cpp Car.h Car.cpp Plan.cpp Plan.h Podium.cpp Podium.h testing.cpp testing.h Showroom.cpp Showroom.h)
+add_executable(laba_oop main.cpp Car.h Car.cpp Plan.cpp Plan.h Podium.cpp Podium.h testing.cpp testing.h Showroom.cpp Showroom.h Plan2.cpp Plan2.h)
