@@ -1,41 +1,38 @@
 //
-// Created by Gevorg Tsaturyan on 05.10.2021.
+// Created by Gevorg Tsaturyan on 31.10.2021.
 //
 
 #ifndef LABA_OOP_PLAN_H
 #define LABA_OOP_PLAN_H
+#include "Showroom.h"
 #include "Car.h"
 #include "Podium.h"
 #include <vector>
 #include <fstream>
-struct CarPod {
-    Podium pod;
-    Car car;
-};
-class Plan2 {
+
+class Plan {
 public:
-    Plan2() = default;
-    Plan2(const Plan2& otherPlan) = default;
-    Plan2(CarPod* cp, int capacity);
-    Plan2(Car *cars,Podium* podium, int amount, int capacity);
-    ~Plan2() = default;
+    Plan() = default;
+    Plan(const Plan& otherPlan) = default;
+    Plan(Showroom** sr, int capacity);
+    ~Plan() = default;
     void addCar(Car car);
-    void addPod(Podium podium);
-    void removeCar(int i);
-    void removeCar();
-    Car getCar(int i);
-    int getCapacity();
+    void addPodium(const Podium& podium);
+    void removeObject(int i);
+    void removeObject();
+    Podium* getPodium(int i);
+    Car* getCar(int i);
+    int getCapacity() const;
     int getAmountCars();
-    void CarsToFile(const std::string& filename);
-    void CarsFromFile(const std::string& filename);
-    void PodToFile(const std::string& filename);
-    void PodFromFile(const std::string& filename);
-    bool CarPodiumCheck(int i);
+    int getAmountPod();
+    void PlanToFile(const std::string& filename);
+    void PlanFromFile(const std::string& filename);
     bool CarPodiumCheck();
+    bool nameCheck();
+    bool Podiumscheck();
 private:
     int capacity=0;
-    int amountCars=0;
-    CarPod* cp;
+    Showroom **sr;
 };
 
 

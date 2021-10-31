@@ -1,175 +1,62 @@
 //
-// Created by Gevorg Tsaturyan on 05.10.2021.
+// Created by Gevorg Tsaturyan on 31.10.2021.
 //
 
 #include "Plan.h"
 
-Plan2::Plan2(CarPod* cp, int capacity) :
-    cp(cp), capacity(capacity) {
+Plan::Plan(Showroom** sr, int capacity) :
+        sr(sr), capacity(capacity) {
 }
-Plan2::Plan2(Car *cars,Podium* podium, int amount, int tcapacity) {
-    for (int i=0;i<tcapacity;i++) {
-        this->addPod(podium[i]);
-    }
-    for (int i = 0; i<amount;i++)
-        this->addCar(cars[i]);
-}
-void Plan2::addCar(Car car) {
-    if (!capacity)
-        throw std::exception();
-    else if (amountCars==capacity)
-        throw std::exception();
-    else if (amountCars<capacity) {
-        for (int i = 0; i < capacity; i++)
-            if (cp[i].car.getName()=="") {
-                cp[i].car = car;
-                break;
-            }
-        amountCars++;
-    }
-}
-void Plan2::addPod(Podium podium) {
+void Plan::addPodium(const Podium& podium) {
     if (!capacity) {
         capacity++;
-        cp = new CarPod[capacity];
-        cp[capacity - 1].pod = podium;
+        sr = new Showroom*[capacity];
+        sr[capacity - 1] = new Podium(podium);
     } else {
-        CarPod *tmp = new CarPod[capacity + 1];
+        Showroom **tmp = new Showroom*[capacity + 1];
         for (int j = 0; j < capacity; j++)
-            tmp[j] = cp[j];
-        delete[] cp;
-        cp = tmp;
-        cp[capacity].pod = podium;
+            tmp[j] = sr[j];
+        delete[] sr;
+        sr = tmp;
+        sr[capacity] = new Podium(podium);
         capacity++;
     }
 }
-void Plan2::removeCar(int i) {
-    if (i>capacity)
-        throw std::exception();
-    else {
-        cp[i].car = Car();
-        amountCars--;
-    }
-    /*if (capacity == 1)
+int Plan::getCapacity() const {
+    return capacity;
+}Podium* Plan::getPodium(int i) {
+    if (sr[i]->getType()==1)
+        return reinterpret_cast<Podium*>(sr[i]);
+    else throw std::exception();
+}
+Car* Plan::getCar(int i) {
+    if (sr[i]->getType()==0)
+        return reinterpret_cast<Car*>(sr[i]);
+
+}
+void Plan::removeObject(int i){
+    if (capacity == 1)
     {
-        delete [] cars;
+        delete [] sr;
         capacity--;
     }
     else
     {
         for (int j = capacity - 1; j > i; j--)
-            cars[j - 1] = cars[j];
-        Car *temp = new Car[capacity - 1];
-        for (int i = 0; i < capacity - 1; i++)
-            temp[i] = cars[i];
-        delete [] cars;
-        cars = temp;
+            sr[j - 1] = sr[j];
+        Showroom **temp = new Showroom*[capacity - 1];
+        for (int j = 0; j < capacity - 1; j++)
+            temp[j] = sr[j];
+        delete [] sr;
+        sr = temp;
+        //for (int j=0; j<capacity;j++)
+          //  *sr[j] = *temp[j];
         capacity--;
-    } */
-}
-void Plan2::removeCar() {
-    for (int i=0;i<capacity;i++){
-        cp[i].car = Car();
     }
-    amountCars = 0;
-}
-Car Plan2::getCar(int i) {
-    if (!amountCars)
-        throw std::exception();
-    else {
-        if (cp[i].car.getName()=="")
-            throw std::exception();
-        else
-            return cp[i].car;
-    }
+};
 
-}
-int Plan2::getCapacity() {
-    return capacity;
-}
-int Plan2::getAmountCars() {
-    return amountCars;
-}
-void Plan2::CarsToFile(const std::string &filename) {
-    std::ofstream fin(filename);
-
-    for (int i = 0; i < capacity; i++)
-    {
-        std::string  name = cp[i].car.getName();
-        int size_x = cp[i].car.getLength(), size_y = cp[i].car.getWidth(), coor_x = cp[i].car.getX(), coor_y = cp[i].car.getY(), angle = cp[i].car.getAngle();
-        fin << name << " ";
-        fin << size_x << " " << size_y << " ";
-        fin << coor_x << " " << coor_y << " ";
-        fin << angle << std::endl;
-    }
-    fin.close();
-}
-void Plan2::CarsFromFile(const std::string &filename) {
-    std::ifstream fout(filename);
-    std::string name;
-    int length, width, x , y, angle;
-    std::vector <Car> temp;
-    Car *tmp;
-    while (fout >> name >> length >> width >> x >> y >> angle)
-    {
-        tmp = new Car;
-        (*tmp).setName(name);
-        (*tmp).setLength(length);
-        (*tmp).setWidth(width);
-        (*tmp).setX(x);
-        (*tmp).setY(y);
-        (*tmp).setAngle(angle);
-        temp.push_back(*tmp);
-        delete tmp;
-        this->addCar(temp.back());
-    }
-    temp.clear();
-    fout.close();
-}
-void Plan2::PodFromFile(const std::string& filename) {
-    std::ifstream fout(filename);
-    std::string name;
-    int rad, x , y;
-    std::vector <Podium> temp;
-    Podium *tmp;
-    while (fout >> name >> x >> y >> rad)
-    {
-        tmp = new Podium;
-        (*tmp).setName(name);
-        (*tmp).setX(x);
-        (*tmp).setY(y);
-        (*tmp).setRadius(rad);
-        temp.push_back(*tmp);
-        delete tmp;
-        this->addPod(temp.back());
-    }
-    temp.clear();
-    fout.close();
-}
-void Plan2::PodToFile(const std::string& filename) {
-    std::ofstream fin(filename);
-
-    for (int i = 0; i < capacity; i++)
-    {
-        std::string  name = cp[i].pod.getName();
-        int rad = cp[i].pod.getRadius(), coor_x = cp[i].car.getX(), coor_y = cp[i].car.getY();
-        fin << name << " ";
-        fin << coor_x << " " << coor_y << " ";
-        fin << rad << std::endl;
-    }
-    fin.close();
-}
-bool Plan2::CarPodiumCheck(int i) {
-   if (i>=capacity)
-       throw std::exception();
-   if ((cp[i].car.getName() == cp[i].pod.getName()) || (cp[i].car.getName()==""))
-       return true;
-   else
-       return false;
-}
-bool Plan2::CarPodiumCheck() {
-    for (int i; i<capacity;i++)
-        if (!CarPodiumCheck(i))
-            return false;
-    return true;
-}
+void Plan::removeObject() {
+    for (int i=0; i<capacity;i++)
+        delete sr[i];
+    capacity = 0;
+};

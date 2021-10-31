@@ -1,6 +1,6 @@
 #ifndef LABA_OOP_TESTING_H
 #define LABA_OOP_TESTING_H
-#include "Plan.h"
+#include "Plan3.h"
 
 void PlanFileCopyTest();
 void PlanAddDelTest();
