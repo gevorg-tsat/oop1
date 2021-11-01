@@ -3,7 +3,15 @@
 //
 
 #include "Plan.h"
-
+std::vector<std::string> split(const std::string &s, char delim) {
+    std::stringstream ss(s);
+    std::string item;
+    std::vector<std::string> elems;
+    while (std::getline(ss, item, delim)) {
+        elems.push_back(std::move(item));
+    }
+    return elems;
+}
 Plan::Plan(Showroom** sr, int capacity) :
         sr(sr), capacity(capacity) {
 }
@@ -73,7 +81,26 @@ void Plan::toFile(const std::string &filename) {
     }
     fin.close();
 }
-
+void Plan::fromFile(const std::string &filename) {
+    std::ifstream file(filename);
+    if (file.is_open()) {
+        std::string line;
+        while (std::getline(file, line)) {
+            std::vector<std::string> elems = split(line, ' ');
+            if (elems.size() == 4) {
+                Podium pod =  Podium(elems[0], std::stoi(elems[1]), std::stoi(elems[2]), std::stoi(elems[3]));
+                //std::cout << pod->toString() << std::endl;
+                addPodium(pod);
+            }
+            else if (elems.size() == 6){
+                Car car =  Car(elems[0], std::stoi(elems[1]), std::stoi(elems[2]), std::stoi(elems[3]), std::stoi(elems[4]), std::stoi(elems[5]));
+                addCar(car);
+            }
+        }
+        }
+        file.close();
+    file.close();
+}
 void Plan::removeObject(int i){
     if (capacity == 1)
     {
