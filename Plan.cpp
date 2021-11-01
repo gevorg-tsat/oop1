@@ -2,6 +2,7 @@
 // Created by Gevorg Tsaturyan on 31.10.2021.
 //
 
+#define PI 3.14159265
 #include "Plan.h"
 std::vector<std::string> split(const std::string &s, char delim) {
     std::stringstream ss(s);
@@ -163,4 +164,50 @@ bool Plan::PodiumsCheck() {
     }
     return true;
 }
+bool checkPoint(float x, float y, int coorX, int coorY, int r){
+    if ((pow(x-coorX,2)+pow(y - coorY,2)) <= pow(r,2))
+        return true;
+    else
+        return false;
+}
+int Plan::CarPodiumCheck(){
+    int k = this->getCapacity();
+    for(int i = 0; i<k;i++){
+        int p = 0;
+        if (sr[i]->getType() == 1)
+            continue;
+        else if(sr[i]->getType() == 0){
+            for(int j=0; j<k; j++) {
+                if (sr[j]->getType() == 0)
+                    continue;
+                else if(sr[j]->getType() == 1){
+                    float ulx,uly,urx,ury,lrx,lry,llx,lly;
+                    float ang = this->getCar(i)->getAngle() * PI / 180;
+                    int px = this->getPodium(j)->getX(),py = this->getPodium(j)->getY(), r = this->getPodium(j)->getRadius();
+                    llx = this->getCar(i)->getX();
+                    lly = this->getCar(i)->getY();
+                    ulx = llx + sin(ang)*this->getCar(i)->getWidth();
+                    uly = lly + cos(ang)*this->getCar(i)->getWidth();
+                    lrx = llx + cos(ang)*this->getCar(i)->getLength();
+                    lry = lly + sin(ang)*this->getCar(i)->getLength();
+                    urx = ulx + lrx - llx;
+                    ury = uly + lry - lly;
+                    if (!(checkPoint(llx,lly,px,py,r) || checkPoint(ulx,uly,px,py,r) || checkPoint(lrx,lry,px,py,r) || checkPoint(urx,ury,px,py,r) )) {
+                        continue;
+                    }
+                    else if (checkPoint(llx,lly,px,py,r) && checkPoint(ulx,uly,px,py,r) && checkPoint(lrx,lry,px,py,r) && checkPoint(urx,ury,px,py,r) && (this->getPodium(j)->getName()== this->getCar(i)->getName()))
+                        p++;
+                    else
+                        return i;
+                }
+            }
+        }
+        if (p>1 || p == 0){
+            return i;
+
+        }
+    }
+    return -1;
+}
+
 

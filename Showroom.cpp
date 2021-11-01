@@ -12,10 +12,6 @@ Showroom::~Showroom() {
     //
 }
 Showroom::Showroom(const std::string& name, int x, int y) {
-    if (!checkHWLXY(x))
-        throw std::exception();
-    if (!checkHWLXY(y))
-        throw std::exception();
     this->name = name;
     this->x = x;
     this->y = y;
@@ -24,13 +20,9 @@ void Showroom::setName(const std::string& name) {
     this->name = name;
 }
 void Showroom::setX(int x) {
-    if (!checkHWLXY(x))
-        throw std::exception();
     this->x = x;
 }
 void Showroom::setY(int y) {
-    if (!checkHWLXY(y))
-        throw std::exception();
     this->y = y;
 }
 const std::string& Showroom::getName() const {

@@ -29,7 +29,7 @@ public:
     int getAmountPod();
     void toFile(const std::string& filename);
     void fromFile(const std::string& filename);
-    bool CarPodiumCheck();
+    int CarPodiumCheck();
     bool nameCheck();
     bool PodiumsCheck();
 private:
