@@ -16,7 +16,7 @@ public:
     Plan(const Plan& otherPlan) = default;
     Plan(Showroom** sr, int capacity);
     ~Plan() = default;
-    void addCar(Car car);
+    void addCar(const Car& car);
     void addPodium(const Podium& podium);
     void removeObject(int i);
     void removeObject();
@@ -25,8 +25,8 @@ public:
     int getCapacity() const;
     int getAmountCars();
     int getAmountPod();
-    void PlanToFile(const std::string& filename);
-    void PlanFromFile(const std::string& filename);
+    void toFile(const std::string& filename);
+    void fromFile(const std::string& filename);
     bool CarPodiumCheck();
     bool nameCheck();
     bool Podiumscheck();

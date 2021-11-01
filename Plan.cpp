@@ -22,6 +22,21 @@ void Plan::addPodium(const Podium& podium) {
         capacity++;
     }
 }
+void Plan::addCar(const Car& car) {
+    if (!capacity) {
+        capacity++;
+        sr = new Showroom*[capacity];
+        sr[capacity - 1] = new Car(car);
+    } else {
+        Showroom **tmp = new Showroom*[capacity + 1];
+        for (int j = 0; j < capacity; j++)
+            tmp[j] = sr[j];
+        delete[] sr;
+        sr = tmp;
+        sr[capacity] = new Car(car);
+        capacity++;
+    }
+}
 int Plan::getCapacity() const {
     return capacity;
 }Podium* Plan::getPodium(int i) {
@@ -34,6 +49,31 @@ Car* Plan::getCar(int i) {
         return reinterpret_cast<Car*>(sr[i]);
 
 }
+void Plan::toFile(const std::string &filename) {
+    std::ofstream fin(filename);
+    for (int i = 0; i < capacity; i++)
+    {
+        if (sr[i]->getType()==0) {
+            Car tmp = *(this->getCar(i));
+            std::string name = tmp.getName();
+            int size_x = tmp.getLength(), size_y = tmp.getWidth(), coor_x = tmp.getX(), coor_y = tmp.getY(), angle = tmp.getAngle();
+            fin << name << " ";
+            fin << size_x << " " << size_y << " ";
+            fin << coor_x << " " << coor_y << " ";
+            fin << angle << std::endl;
+        }
+        else if (sr[i]->getType() == 1) {
+            Podium tmp = *(this->getPodium(i));
+            std::string name = tmp.getName();
+            int rad = tmp.getRadius(), coor_x = tmp.getX(), coor_y = tmp.getY();
+            fin << name << " ";
+            fin << coor_x << " " << coor_y << " ";
+            fin << rad << std::endl;
+        }
+    }
+    fin.close();
+}
+
 void Plan::removeObject(int i){
     if (capacity == 1)
     {
@@ -54,7 +94,20 @@ void Plan::removeObject(int i){
         capacity--;
     }
 };
-
+int Plan::getAmountCars(){
+    int k=0;
+    for (int i = 0; i<capacity; i++)
+        if (!(sr[i]->getType()))
+            k++;
+    return k;
+}
+int Plan::getAmountPod(){
+    int k=0;
+    for (int i = 0; i<capacity; i++)
+        if (sr[i]->getType() == 1)
+            k++;
+    return k;
+}
 void Plan::removeObject() {
     for (int i=0; i<capacity;i++)
         delete sr[i];
