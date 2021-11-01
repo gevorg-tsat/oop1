@@ -12,6 +12,7 @@ int main() {
     std::cout<<plan.getCapacity();
     std::cout<<plan.getPodium(0)->getName();
     plan.removeObject(0);
+    std::cout<<plan.getCapacity();
     std::cout<<plan.getPodium(1)->getName();
     return 0;
 }

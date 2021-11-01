@@ -42,15 +42,15 @@ void Plan::removeObject(int i){
     }
     else
     {
-        for (int j = capacity - 1; j > i; j--)
-            sr[j - 1] = sr[j];
-        Showroom **temp = new Showroom*[capacity - 1];
+        for (int j = i; j < capacity; j++)
+            sr[j] = sr[j+1];
+        Showroom* *temp = new Showroom*[capacity - 1];
         for (int j = 0; j < capacity - 1; j++)
             temp[j] = sr[j];
         delete [] sr;
         sr = temp;
-        //for (int j=0; j<capacity;j++)
-          //  *sr[j] = *temp[j];
+        //for (int j=0; j<capacity-1;j++)
+            //*sr[j] = *temp[j];
         capacity--;
     }
 };
