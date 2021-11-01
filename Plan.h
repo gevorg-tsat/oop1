@@ -4,12 +4,14 @@
 
 #ifndef LABA_OOP_PLAN_H
 #define LABA_OOP_PLAN_H
+#include <iostream>
 #include "Showroom.h"
 #include "Car.h"
 #include "Podium.h"
 #include <vector>
 #include <fstream>
 #include <sstream>
+#include <cmath>
 class Plan {
 public:
     Plan() = default;
@@ -29,7 +31,7 @@ public:
     void fromFile(const std::string& filename);
     bool CarPodiumCheck();
     bool nameCheck();
-    bool Podiumscheck();
+    bool PodiumsCheck();
 private:
     int capacity=0;
     Showroom **sr;

@@ -140,3 +140,27 @@ void Plan::removeObject() {
         delete sr[i];
     capacity = 0;
 };
+bool Plan::PodiumsCheck() {
+    int k = this->getCapacity();
+    for(int i = 0; i<k-1;i++){
+        if (sr[i]->getType() == 0)
+            continue;
+        else if(sr[i]->getType() == 1){
+            for(int j=i+1; j<k; j++) {
+                if (sr[j]->getType() == 0)
+                    continue;
+                else if(sr[j]->getType() == 1){
+                    float r1, r2;
+                    r1 = sqrt(std::pow(this->getPodium(i)->getX() - this->getPodium(j)->getX(),2) + std::pow(this->getPodium(i)->getY() - this->getPodium(j)->getY(),2));
+                    r2 = this->getPodium(i)->getRadius()+this->getPodium(j)->getRadius();
+                    if (r1>=r2)
+                        continue;
+                    else
+                        return false;
+                }
+            }
+        }
+    }
+    return true;
+}
+
