@@ -16,11 +16,24 @@ std::vector<std::string> split(const std::string &s, char delim) {
 Plan::Plan(Showroom** sr, int capacity) :
         sr(sr), capacity(capacity) {
 }
-void Plan::addPodium(const Podium& podium) {
+void Plan::addObject(const std::string& line) {
+        std::vector<std::string> elems = split(line, ' ');
+        if (elems.size() == 4) {
+            Podium pod =  Podium(elems[0], std::stoi(elems[1]), std::stoi(elems[2]), std::stoi(elems[3]));
+            //std::cout << pod->toString() << std::endl;
+            addObject(pod);
+        }
+        else if (elems.size() == 6){
+            Car car =  Car(elems[0], std::stoi(elems[1]), std::stoi(elems[2]), std::stoi(elems[3]), std::stoi(elems[4]), std::stoi(elems[5]));
+            addObject(car);
+        }
+}
+
+void Plan::addObject(const Podium& podium) {
     if (!capacity) {
         capacity++;
-        sr = new Showroom*[capacity];
-        sr[capacity - 1] = new Podium(podium);
+        sr = new Showroom*[1];
+        sr[0] = new Podium(podium);
     } else {
         Showroom **tmp = new Showroom*[capacity + 1];
         for (int j = 0; j < capacity; j++)
@@ -31,7 +44,7 @@ void Plan::addPodium(const Podium& podium) {
         capacity++;
     }
 }
-void Plan::addCar(const Car& car) {
+void Plan::addObject(const Car& car) {
     if (!capacity) {
         capacity++;
         sr = new Showroom*[capacity];
@@ -56,7 +69,7 @@ int Plan::getCapacity() const {
 Car* Plan::getCar(int i) {
     if (sr[i]->getType()==0)
         return reinterpret_cast<Car*>(sr[i]);
-
+    else throw std::exception();
 }
 void Plan::toFile(const std::string &filename) {
     std::ofstream fin(filename);
@@ -91,12 +104,14 @@ void Plan::fromFile(const std::string &filename) {
             if (elems.size() == 4) {
                 Podium pod =  Podium(elems[0], std::stoi(elems[1]), std::stoi(elems[2]), std::stoi(elems[3]));
                 //std::cout << pod->toString() << std::endl;
-                addPodium(pod);
+                addObject(pod);
             }
             else if (elems.size() == 6){
                 Car car =  Car(elems[0], std::stoi(elems[1]), std::stoi(elems[2]), std::stoi(elems[3]), std::stoi(elems[4]), std::stoi(elems[5]));
-                addCar(car);
+                addObject(car);
             }
+            else
+                throw std::exception();
         }
         }
         file.close();
@@ -122,14 +137,14 @@ void Plan::removeObject(int i){
         capacity--;
     }
 };
-int Plan::getAmountCars(){
+int Plan::getAmountCars() const{
     int k=0;
     for (int i = 0; i<capacity; i++)
         if (!(sr[i]->getType()))
             k++;
     return k;
 }
-int Plan::getAmountPod(){
+int Plan::getAmountPod() const{
     int k=0;
     for (int i = 0; i<capacity; i++)
         if (sr[i]->getType() == 1)
@@ -209,5 +224,10 @@ int Plan::CarPodiumCheck(){
     }
     return -1;
 }
-
+const std::string& Plan::toString(int i) {
+    if (sr[i]->getType()==0)
+        return this->getCar(i)->toString();
+    else if (sr[i]->getType()==1)
+        return this->getPodium(i)->toString();
+}
 

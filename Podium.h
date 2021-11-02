@@ -15,6 +15,7 @@ public:
     void setRadius(int r);
     int getRadius() const;
     int getType() const;
+    std::string toString();
 private:
     int r;
 };

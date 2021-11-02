@@ -42,3 +42,7 @@ bool  Showroom::checkHWLXY(int value) {
 int Showroom::getType() const{
 
 }
+
+std::string Showroom::toString() {
+
+}

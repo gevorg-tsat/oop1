@@ -51,10 +51,15 @@ int Car::getLength() const{
     return this->length;
 }
 bool Car::checkAngle(int angle) {
-    if (angle<0 || angle>=360)
+    if (angle<0 || angle>90)
         return false;
     return true;
 }
 int Car::getType() const{
     return 0;
+}
+std::string Car::toString(){
+    std::stringstream ss;
+    ss << this->getName()<<" "<<this->getLength()<<" "<<this->getWidth()<<" "<<this->getX()<<" "<<this->getY()<<" "<<this->getAngle();
+    return ss.str();
 }

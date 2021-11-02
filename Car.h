@@ -19,6 +19,7 @@ public:
     int getAngle() const;
     int getLength() const;
     int getType() const;
+    std::string toString();
 private:
     int width;
     int length;

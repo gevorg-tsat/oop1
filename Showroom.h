@@ -6,6 +6,7 @@
 #define LABA_OOP_SHOWROOM_H
 #include <string>
 #define ZERO 0
+#include <sstream>
 #define EMPTY ""
 class Showroom {
 public:
@@ -19,6 +20,7 @@ public:
     int getX() const;
     int getY() const;
     virtual int getType() const;
+    virtual std::string toString();
 private:
    std::string name;
    int x;

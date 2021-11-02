@@ -26,3 +26,8 @@ void Podium::setRadius(int r) {
 int Podium::getType() const{
     return 1;
 }
+std::string Podium::toString(){
+    std::stringstream ss;
+    ss << this->getName()<<" "<<this->getX()<<" "<<this->getY()<<" "<<this->getRadius();
+    return ss.str();
+}
